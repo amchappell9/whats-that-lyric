@@ -1,0 +1,6 @@
+@tailwind preflight;
+@tailwind utilities;
+/* Your custom CSS here. If npm start is running changes will be picked up and compiled into src/index.css automatically */
+.mySuperCustomClassesGoHere {
+    color: pink;
+}
