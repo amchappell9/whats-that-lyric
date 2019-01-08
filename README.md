@@ -1,3 +1,9 @@
+## What's that lyric?
+* What's that lyric? will allow you to log into spotify and then show the lyrics to the song that you are listening to. 
+* Will use Spotify API and Genius API
+* Built with React
+* Will use Tailwind for styling
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
