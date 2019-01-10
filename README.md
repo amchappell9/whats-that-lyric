@@ -23,6 +23,9 @@
 * Custom styles are in /src/styles/index.css
 * Complied output is generated on run/build and outputed to /src/index.css
 
+## Troubleshooting
+* postcss TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string - never figured this out. Apparantly it's some issue with windows and node. Decided to run tailwind complier manually any time there's a change now
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
