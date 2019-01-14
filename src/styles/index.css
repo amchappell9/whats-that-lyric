@@ -1,7 +1,10 @@
 @tailwind preflight;
-@tailwind utilities;
+@tailwind components;
+
 
 /* Your custom CSS here. If npm start is running changes will be picked up and compiled into src/index.css automatically */
-.mySuperCustomClassesGoHere {
-    color: pink;
+.main-viewport {
+    min-height: calc(100vh - 8.5rem);
 }
+
+@tailwind utilities;

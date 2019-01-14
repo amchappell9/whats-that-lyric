@@ -5,7 +5,8 @@
 * Will use Tailwind for styling
 
 ## Up Next
-* Figure out why npm start isn't running. Delete repo and reinstall because something weird is going on with permissions
+* ~~Figure out why npm start isn't running. Delete repo and reinstall because something weird is going on with permissions~~
+* Learn Tailwind
 
 ## TODO List
 * ~~Install Tailwind~~

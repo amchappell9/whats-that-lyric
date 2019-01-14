@@ -496,6 +496,40 @@ table {
   border-collapse: collapse;
 }
 
+.container {
+  width: 100%;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 576px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 992px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+/* Your custom CSS here. If npm start is running changes will be picked up and compiled into src/index.css automatically */
+
+.main-viewport {
+  min-height: calc(100vh - 8.5rem);
+}
+
 .list-reset {
   list-style: none;
   padding: 0;
@@ -3060,6 +3094,10 @@ table {
 
 .h-16 {
   height: 4rem;
+}
+
+.h-20 {
+  height: 5rem;
 }
 
 .h-24 {
@@ -6117,12 +6155,6 @@ table {
   z-index: auto;
 }
 
-/* Your custom CSS here. If npm start is running changes will be picked up and compiled into src/index.css automatically */
-
-.mySuperCustomClassesGoHere {
-  color: pink;
-}
-
 @media (min-width: 576px) {
   .sm\:list-reset {
     list-style: none;
@@ -8680,6 +8712,10 @@ table {
 
   .sm\:h-16 {
     height: 4rem;
+  }
+
+  .sm\:h-20 {
+    height: 5rem;
   }
 
   .sm\:h-24 {
@@ -14281,6 +14317,10 @@ table {
     height: 4rem;
   }
 
+  .md\:h-20 {
+    height: 5rem;
+  }
+
   .md\:h-24 {
     height: 6rem;
   }
@@ -19880,6 +19920,10 @@ table {
     height: 4rem;
   }
 
+  .lg\:h-20 {
+    height: 5rem;
+  }
+
   .lg\:h-24 {
     height: 6rem;
   }
@@ -25477,6 +25521,10 @@ table {
 
   .xl\:h-16 {
     height: 4rem;
+  }
+
+  .xl\:h-20 {
+    height: 5rem;
   }
 
   .xl\:h-24 {
