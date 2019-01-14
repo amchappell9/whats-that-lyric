@@ -15,6 +15,7 @@
 * Login with Spotify Credentials
 * Get song fron spotify API
 * Lookup song with Genius API
+* Get credits from Genius or Spotify?
 
 ## Resources Used
 * Initalizing tailwind - https://medium.com/@mikeeeeeeey/create-react-app-tailwind-css-feat-postcss-631d9e33ba8c
