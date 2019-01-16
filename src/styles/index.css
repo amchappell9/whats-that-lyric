@@ -3,8 +3,8 @@
 
 
 /* Your custom CSS here. If npm start is running changes will be picked up and compiled into src/index.css automatically */
-.main-viewport {
-    min-height: calc(100vh - 8.5rem);
+.App {
+    min-height: 100vh;
 }
 
 @tailwind utilities;

@@ -1,23 +1,34 @@
 import React, { Component } from 'react';
 import './App.css';
+import Header from './Header';
+import Login from './Login';
+import NowPlaying from './NowPlaying';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoggedin: false
+    };
+  }
+
   render() {
+    let mainApp;
+
+    if (!this.state.isLoggedin) {
+      mainApp = <Login />;
+    } else {
+      mainApp = <NowPlaying />;
+    }
+
     return (
-      <div className="App">
-        <header className="h-20 border-b border-black border-solid">
-          <div className="container mx-auto pt-5">
-            <h1>What's That Lyric?</h1>
-          </div>
-        </header>
-        <main className="main-viewport">
+      <div className="App bg-black">
+        <Header isLoggedIn={this.state.isLoggedin} />
+        <main>
           <div className="container mx-auto mt-4">
-            Text
+            {mainApp}
           </div>
         </main>
-        <footer className="h-10 bg-grey">
-
-        </footer>
       </div>
     );
   }
