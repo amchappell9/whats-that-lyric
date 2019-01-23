@@ -16,9 +16,11 @@
 * Get song fron spotify API
 * Lookup song with Genius API
 * Get credits from Genius or Spotify?
+* Setup deployment pipeline
 
 ## Resources Used
 * Initalizing tailwind - https://medium.com/@mikeeeeeeey/create-react-app-tailwind-css-feat-postcss-631d9e33ba8c
+* Possible deployment strategy - https://medium.com/@adhasmana/how-to-deploy-react-and-node-app-on-aws-a-better-approach-5b22e2ed2da2
 
 ## Tailwind
 * Configuration is in tailwind.config.js
