@@ -20,7 +20,6 @@
 
 ## Resources Used
 * Initalizing tailwind - https://medium.com/@mikeeeeeeey/create-react-app-tailwind-css-feat-postcss-631d9e33ba8c
-* Possible deployment strategy - https://medium.com/@adhasmana/how-to-deploy-react-and-node-app-on-aws-a-better-approach-5b22e2ed2da2
 
 ## Tailwind
 * Configuration is in tailwind.config.js
@@ -31,6 +30,10 @@
 * postcss TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string - never figured this out. Apparantly it's some issue with windows and node. Decided to run tailwind complier manually any time there's a change now
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Possible tools/ideas
+* Animations - https://github.com/react-spring/react-spring
+* Deployment - https://medium.com/@adhasmana/how-to-deploy-react-and-node-app-on-aws-a-better-approach-5b22e2ed2da2
 
 ## Available Scripts
 
