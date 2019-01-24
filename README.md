@@ -17,6 +17,7 @@
 * Lookup song with Genius API
 * Get credits from Genius or Spotify?
 * Setup deployment pipeline
+* Performance enhancements, lower page load times
 
 ## Resources Used
 * Initalizing tailwind - https://medium.com/@mikeeeeeeey/create-react-app-tailwind-css-feat-postcss-631d9e33ba8c
