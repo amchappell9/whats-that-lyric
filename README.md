@@ -10,8 +10,9 @@
 
 ## TODO List
 * ~~Install Tailwind~~
-* Configure Tailwind
-* Plan styling
+* ~~Configure Tailwind~~
+* ~~Plan styling~~
+* Rough styling
 * Login with Spotify Credentials
 * Get song fron spotify API
 * Lookup song with Genius API

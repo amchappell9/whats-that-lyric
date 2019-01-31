@@ -20,7 +20,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App bg-black">
+      <div className="App">
         <Header isLoggedIn={this.state.isLoggedIn} />
         <main>
           <div className="container mx-auto mt-4">

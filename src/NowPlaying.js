@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import LyricsContainer from './LyricsContainer';
 
 class NowPlaying extends Component {
     render () {
@@ -13,6 +14,7 @@ class NowPlaying extends Component {
                 <div className="flex justify-center">
                     <p className="text-magenta font-bold text-3xl">By Travis Scott</p>
                 </div>
+                <LyricsContainer />
             </div>
         )
     }

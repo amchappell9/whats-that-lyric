@@ -526,8 +526,24 @@ table {
 
 /* Your custom CSS here. If npm start is running changes will be picked up and compiled into src/index.css automatically */
 
+/* Fixes issue where html element is a little longer than the body element */
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: #000;
+}
+
 .App {
   min-height: 100vh;
+}
+
+.lyricsContainer p {
+  color: #858585;
+  margin-bottom: .5rem;
+  font-size: 1.125rem;
 }
 
 .list-reset {
