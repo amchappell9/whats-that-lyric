@@ -20,10 +20,13 @@
 * Setup deployment pipeline
 * Performance enhancements, lower page load times
 
+## Future Enhancements
+* Animate transition from lyric line to detail
+
 ## Resources Used
 * Initalizing tailwind - https://medium.com/@mikeeeeeeey/create-react-app-tailwind-css-feat-postcss-631d9e33ba8c
 
-## Tailwind
+### Tailwind
 * Configuration is in tailwind.config.js
 * Custom styles are in /src/styles/index.css
 * Complied output is generated on run/build and outputed to /src/index.css
