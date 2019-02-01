@@ -1,9 +1,9 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 
 const LyricsContainer = props => {
     return (
         <div className="lyricsContainer container mx-auto px-32 mt-20">
-            <h1 className="text-3xl">Lyrics</h1>
+            <h2 className="text-sm text-dark-grey uppercase mb-4">Goosebumps Lyrics</h2>
             <p>[Intro: Travis Scott]</p>
             <p>Yeah</p>
             <p>7:30 in the night, yeah</p>

@@ -48,7 +48,9 @@ let colors = {
 
   'black': '#000000',
   'off-black': '#22292f',
-  'grey': '#858585',
+  'dark-grey': 'hsl(0, 0%, 37%)',
+  'grey': 'hsl(0, 0%, 50%)',
+  'light-grey': 'hsl(0, 0%, 75%)',
   'magenta': '#BC00FF',
   'white': '#ffffff',
   // 'grey-darkest': '#3d4852',

@@ -3,6 +3,7 @@ import './App.css';
 import Header from './Header';
 import Login from './Login';
 import NowPlaying from './NowPlaying';
+import Footer from './Footer';
 
 class App extends Component {
   constructor(props) {
@@ -31,6 +32,7 @@ class App extends Component {
             )}
           </div>
         </main>
+        <Footer />
       </div>
     );
   }

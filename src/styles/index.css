@@ -18,7 +18,21 @@ body {
 }
 
 .lyricsContainer p {
-    @apply text-grey mb-2 text-lg;
+    @apply text-grey text-lg;
+    line-height: 1.4;
+}
+
+::selection {
+    @apply bg-magenta text-black;
+}
+
+::-moz-selection {
+    @apply bg-magenta text-black;
+}
+
+hr {
+    border-bottom: 1px solid;
+    @apply border-magenta;
 }
 
 @tailwind utilities;
