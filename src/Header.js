@@ -5,7 +5,14 @@ const Header = ({isLoggedIn}) => {
         <header className="h-20 border-b border-black border-solid">
             <div className="container mx-auto pt-5 text-magenta">
                 {isLoggedIn && (
-                    <h1>What's That Lyric?</h1>
+                    <div className="flex justify-between">
+                        <div>
+                            <h1>What's That Lyric?</h1>
+                        </div>
+                        <div className="text-right text-magenta text-xl mt-4">
+                            <a href="#">Logout</a>
+                        </div>
+                    </div>
                 )}
             </div>
         </header>
