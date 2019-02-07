@@ -9,8 +9,8 @@ const Header = ({isLoggedIn}) => {
                         <div>
                             <h1>What's That Lyric?</h1>
                         </div>
-                        <div className="text-right text-magenta text-xl mt-4">
-                            <a href="#">Logout</a>
+                        <div className="text-right text-xl mt-4">
+                            <button className="text-magenta">Logout</button>
                         </div>
                     </div>
                 )}
