@@ -4,15 +4,11 @@
 * Built with React
 * Will use Tailwind for styling
 
-## Up Next
-* ~~Figure out why npm start isn't running. Delete repo and reinstall because something weird is going on with permissions~~
-* Learn Tailwind
-
 ## TODO List
 * ~~Install Tailwind~~
 * ~~Configure Tailwind~~
 * ~~Plan styling~~
-* Rough styling
+* ~~Rough styling~~
 * Login with Spotify Credentials
 * Get song fron spotify API
 * Lookup song with Genius API
