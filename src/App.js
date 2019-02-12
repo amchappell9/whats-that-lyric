@@ -6,13 +6,13 @@ import NowPlaying from './NowPlaying';
 import Footer from './Footer';
 import SpotifyWebApi from 'spotify-web-api-js';
 
-const spotifyApi = new SpotifyWebApi;
+const spotifyApi = new SpotifyWebApi();
 
 class App extends Component {
   constructor(props) {
     super(props);
 
-    const params = getHashParams();
+    const params = this.getHashParams();
     const token = params.access_token;
 
     if (token) {
@@ -38,12 +38,6 @@ class App extends Component {
     return hashParams;
   }
 
-  login = () => {
-    this.setState({
-      isLoggedIn: true
-    });
-  }
-
   render() {
     return (
       <div className="App">
@@ -51,7 +45,7 @@ class App extends Component {
         <main>
           <div className="container mx-auto mt-4">
             {!this.state.isLoggedIn ? (
-              <Login clickEvent={this.login} />
+              <Login />
             ) : (
               <NowPlaying />
             )}
