@@ -11,6 +11,8 @@
 * ~~Rough styling~~
 * Login with Spotify Credentials
 * Get song fron spotify API
+* Setup NothingPlaying screen
+* Get new access token after expiration
 * Lookup song with Genius API
 * Get credits from Genius or Spotify?
 * Setup deployment pipeline

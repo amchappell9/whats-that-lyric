@@ -5,6 +5,7 @@ import Login from './Login';
 import NowPlaying from './NowPlaying';
 import Footer from './Footer';
 import SpotifyWebApi from 'spotify-web-api-js';
+import NothingPlaying from './NothingPlaying';
 
 const spotifyApi = new SpotifyWebApi();
 
@@ -17,11 +18,17 @@ class App extends Component {
 
     if (token) {
       spotifyApi.setAccessToken(token);
+      this.getNowPlaying();
     }
 
     this.state = {
       isLoggedIn: token ? true : false, 
-      nowPlaying: { name: 'Not Checked', albumArt: ''}
+      nowPlaying: { 
+        songName: 'Not Checked', 
+        artists: [],
+        albumArt: ''
+      },
+      nothingPlaying: false
     };
   }
 
@@ -38,17 +45,53 @@ class App extends Component {
     return hashParams;
   }
 
+  getNowPlaying = () => {
+    spotifyApi.getMyCurrentPlaybackState()
+      .then((response) => {
+        if (response) {
+          this.setState({
+            nowPlaying: {
+              songName: response.item.name,
+              artists: response.item.artists,
+              albumArt: response.item.album.images[0].url
+            }
+          })
+        } else {
+          this.setState({
+            nothingPlaying: true
+          })
+        }
+      })
+      .catch((error) => {
+        if (error.status === 401) {
+          this.getNewAccessToken();
+        } else {
+          console.error("Error getting getting current playback song");
+        }
+      })
+  }
+
+  getNewAccessToken = () => {
+    console.log("Getting new access token");
+  }
+
   render() {
+    let content;
+
+    if (!this.state.isLoggedIn) {
+      content = <Login />;
+    } else if (this.state.isLoggedIn && this.state.nothingPlaying) {
+      content = <NothingPlaying />;
+    } else if (this.state.isLoggedIn && this.state.nowPlaying.name !== 'Not Checked') {
+      content = <NowPlaying nowPlaying={this.state.nowPlaying} />;
+    }
+
     return (
       <div className="App">
         <Header isLoggedIn={this.state.isLoggedIn} />
         <main>
           <div className="container mx-auto mt-4">
-            {!this.state.isLoggedIn ? (
-              <Login />
-            ) : (
-              <NowPlaying />
-            )}
+            {content}
           </div>
         </main>
         <Footer />
