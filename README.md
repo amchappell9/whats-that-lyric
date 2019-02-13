@@ -25,6 +25,10 @@
 * Initalizing tailwind - https://medium.com/@mikeeeeeeey/create-react-app-tailwind-css-feat-postcss-631d9e33ba8c
 * Spotify auth - https://medium.com/@jonnykalambay/now-playing-using-spotifys-awesome-api-with-react-7db8173a7b13 
 
+## Ideas for deployment
+* Netifly
+* AWS (might be good to learn anyways)
+
 ### Tailwind
 * Configuration is in tailwind.config.js
 * Custom styles are in /src/styles/index.css
