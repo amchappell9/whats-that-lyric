@@ -9,7 +9,7 @@
 * ~~Configure Tailwind~~
 * ~~Plan styling~~
 * ~~Rough styling~~
-* Login with Spotify Credentials
+* Login with Spotify Credentials (need to switch to implict authentication)
 * Get song fron spotify API
 * Setup NothingPlaying screen
 * Get new access token after expiration

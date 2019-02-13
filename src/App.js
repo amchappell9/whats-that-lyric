@@ -8,6 +8,10 @@ import SpotifyWebApi from 'spotify-web-api-js';
 import NothingPlaying from './NothingPlaying';
 
 const spotifyApi = new SpotifyWebApi();
+const clientId = 'a0cb7862b26747b2912a710a0d98b39a';
+const redirect_uri = 'http://localhost:3000';
+const scope = 'user-read-playback-state';
+const stateKey = 'spotify_auth_state';
 
 class App extends Component {
   constructor(props) {
@@ -45,6 +49,33 @@ class App extends Component {
     return hashParams;
   }
 
+  redirectToSpotifyAuth = () => {
+    // Build spotify url and redirect to it
+    var state = generateRandomString(16);
+
+    localStorage.setItem(stateKey, state);
+
+    var url = 'https://accounts.spotify.com/authorize';
+    url += '?response_type=token';
+    url += '&client_id=' + encodeURIComponent(clientId);
+    url += '&scope=' + encodeURIComponent(scope);
+    url += '&redirect_uri=' + encodeURIComponent(redirect_uri);
+    url += '&state=' + encodeURIComponent(state);
+
+    window.location = url;
+  }
+
+  generateRandomString = (length) => {
+    var text = '';
+    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+    for (var i = 0; i < length; i++) {
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+
+    return text;
+  }
+
   getNowPlaying = () => {
     spotifyApi.getMyCurrentPlaybackState()
       .then((response) => {
@@ -79,7 +110,7 @@ class App extends Component {
     let content;
 
     if (!this.state.isLoggedIn) {
-      content = <Login />;
+      content = <Login handleLogin={this.redirectToSpotifyAuth}/>;
     } else if (this.state.isLoggedIn && this.state.nothingPlaying) {
       content = <NothingPlaying />;
     } else if (this.state.isLoggedIn && this.state.nowPlaying.name !== 'Not Checked') {
