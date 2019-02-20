@@ -51,7 +51,7 @@ class App extends Component {
 
   redirectToSpotifyAuth = () => {
     // Build spotify url and redirect to it
-    var state = generateRandomString(16);
+    var state = this.generateRandomString(16);
 
     localStorage.setItem(stateKey, state);
 
@@ -63,6 +63,10 @@ class App extends Component {
     url += '&state=' + encodeURIComponent(state);
 
     window.location = url;
+  }
+
+  handleLogout = () => {
+    window.location = window.location.href.substr(0, window.location.href.indexOf('#'));
   }
 
   generateRandomString = (length) => {
@@ -94,16 +98,8 @@ class App extends Component {
         }
       })
       .catch((error) => {
-        if (error.status === 401) {
-          this.getNewAccessToken();
-        } else {
-          console.error("Error getting getting current playback song");
-        }
+        console.error("Error getting getting current playback song");
       })
-  }
-
-  getNewAccessToken = () => {
-    console.log("Getting new access token");
   }
 
   render() {
@@ -119,7 +115,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Header isLoggedIn={this.state.isLoggedIn} />
+        <Header isLoggedIn={this.state.isLoggedIn} handleLogout={this.handleLogout} />
         <main>
           <div className="container mx-auto mt-4">
             {content}

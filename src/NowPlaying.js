@@ -12,9 +12,7 @@ const NowPlaying = (props) => {
             </div>
             <div className="flex justify-center">
                 <p className="text-magenta font-bold text-3xl">By {
-                    props.nowPlaying.artists.map((artist) => {
-                        return <span key={artist.id}>{artist.name}, </span>
-                    })
+                    Array.prototype.map.call(props.nowPlaying.artists, artist => artist.name).toString().split(',').join(', ')
                 }</p>
             </div>
             <LyricsContainer />
