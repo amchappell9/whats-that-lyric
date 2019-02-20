@@ -9,14 +9,14 @@
 * ~~Configure Tailwind~~
 * ~~Plan styling~~
 * ~~Rough styling~~
-* Login with Spotify Credentials (need to switch to implict authentication)
-* Get song fron spotify API
-* Setup NothingPlaying screen
-* Get new access token after expiration
+* ~~Login with Spotify Credentials (need to switch to implict authentication)~~
+* ~~Get song fron spotify API~~
+* ~~Setup NothingPlaying screen~~
 * Lookup song with Genius API
-* Get credits from Genius or Spotify?
+* Get song credits from Genius or Spotify?
 * Setup deployment pipeline
 * Performance enhancements, lower page load times
+* Better error handling
 
 ## Future Enhancements
 * Animate transition from lyric line to detail
