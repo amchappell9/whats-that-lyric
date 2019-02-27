@@ -37,6 +37,7 @@ class App extends Component {
         artists: [],
         albumArt: ''
       },
+      geniusSongInfo: {},
       nothingPlaying: false
     };
   }
@@ -95,7 +96,9 @@ class App extends Component {
               artists: response.item.artists,
               albumArt: response.item.album.images[0].url
             }
-          })
+          });
+
+          this.searchGeniusAPI(response.item.name, response.item.artists[0].name);
         } else {
           this.setState({
             nothingPlaying: true
@@ -105,6 +108,15 @@ class App extends Component {
       .catch((error) => {
         console.error("Error getting getting current playback song");
       })
+  }
+
+  searchGeniusAPI = (songName, artistName) => {    
+    fetch("https://api.genius.com/search?access_token=" + geniusClientAccessToken + "&q=" + encodeURI(songName) + " " + encodeURI(artistName))
+      .then((response) => {
+        this.setState({
+          geniusSongInfo: response.response.hits[0]
+        })
+      });
   }
 
   render() {
