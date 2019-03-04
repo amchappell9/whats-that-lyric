@@ -42,6 +42,20 @@ class App extends Component {
     };
   }
 
+  componentDidMount() {
+    document.addEventListener("visibilitychange", this.handleTabBackInFocus, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("visibilitychange", this.handleTabBackInFocus, false);
+  }
+
+  handleTabBackInFocus = () => {
+    if (this.state.isLoggedIn && !document.hidden) {
+      this.getNowPlaying();
+    } 
+  }
+
   getHashParams = () => {
     var hashParams = {};
     var e, r = /([^&;=]+)=?([^&;]*)/g,

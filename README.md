@@ -17,6 +17,7 @@
 * Genius doesn't support getting lyrics from their API :( 
 * Need to crawl API responses to figure out what info I could display
 * Setup higher order component to feed info to whatever displays the genius info
+* ~~Setup auto recheck for song change on spotify~~ -might need to refine further
 * Setup deployment pipeline
     - Figure out how to set redirect URL in build vs development
 * Performance enhancements, lower page load times
