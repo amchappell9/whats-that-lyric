@@ -113,6 +113,9 @@ class App extends Component {
   searchGeniusAPI = (songName, artistName) => {    
     fetch("https://api.genius.com/search?access_token=" + geniusClientAccessToken + "&q=" + encodeURI(songName) + " " + encodeURI(artistName))
       .then((response) => {
+        return response.json();
+      })
+      .then((response) => {
         this.setState({
           geniusSongInfo: response.response.hits[0]
         })
