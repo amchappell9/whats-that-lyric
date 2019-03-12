@@ -34,6 +34,7 @@
 ## Ideas for deployment
 * Netifly
 * AWS (might be good to learn anyways)
+* Adding cloudflare?
 
 ### Tailwind
 * Configuration is in tailwind.config.js
