@@ -31,9 +31,9 @@ class App extends Component {
     }
 
     this.state = {
-      isLoggedIn: token ? true : false, 
-      nowPlaying: { 
-        songName: 'Not Checked', 
+      isLoggedIn: token ? true : false,
+      nowPlaying: {
+        songName: 'Not Checked',
         artists: [],
         albumArt: ''
       },
@@ -53,7 +53,7 @@ class App extends Component {
   handleTabBackInFocus = () => {
     if (this.state.isLoggedIn && !document.hidden) {
       this.getNowPlaying();
-    } 
+    }
   }
 
   getHashParams = () => {
@@ -124,27 +124,45 @@ class App extends Component {
       })
   }
 
-  searchGeniusAPI = (songName, artistName) => {    
+  searchGeniusAPI = (songName, artistName) => {
     fetch("https://api.genius.com/search?access_token=" + geniusClientAccessToken + "&q=" + encodeURI(songName) + " " + encodeURI(artistName))
       .then((response) => {
         return response.json();
       })
       .then((response) => {
-        this.setState({
-          geniusSongInfo: response.response.hits[0]
-        })
+        // this.setState({
+        //   geniusSongInfo: response.response.hits[0]
+        // })
+
+        this.getGeniusLyrics(response.response.hits[0]);
       });
+  }
+
+  getGeniusLyrics = (geniusResult) => {
+    // Get URL from result
+    const lyricsURL = "https://api.genius.com" + geniusResult.result.api_path + "?access_token=" + geniusClientAccessToken;
+
+    // Call endpoint
+    fetch(lyricsURL)
+      .then((response) => {
+        return response.json();
+      })
+      .then((response) => {
+        this.setState({
+          geniusSongInfo: response
+        });
+      })
   }
 
   render() {
     let content;
 
     if (!this.state.isLoggedIn) {
-      content = <Login handleLogin={this.redirectToSpotifyAuth}/>;
+      content = <Login handleLogin={this.redirectToSpotifyAuth} />;
     } else if (this.state.isLoggedIn && this.state.nothingPlaying) {
       content = <NothingPlaying />;
     } else if (this.state.isLoggedIn && this.state.nowPlaying.name !== 'Not Checked') {
-      content = <NowPlaying nowPlaying={this.state.nowPlaying} />;
+      content = <NowPlaying nowPlaying={this.state.nowPlaying} songInfo={this.state.geniusSongInfo} />;
     }
 
     return (

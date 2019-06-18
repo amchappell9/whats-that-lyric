@@ -15,7 +15,7 @@ const NowPlaying = (props) => {
                     Array.prototype.map.call(props.nowPlaying.artists, artist => artist.name).toString().split(',').join(', ')
                 }</p>
             </div>
-            <LyricsContainer />
+            <LyricsContainer songInfo={props.lyrics} />
         </div>
     )
 }
