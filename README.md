@@ -24,6 +24,7 @@
     - Figure out how to set redirect URL in build vs development
 * Performance enhancements, lower page load times
 * Better error handling
+* Redo UI
 
 
 ## Future Enhancements

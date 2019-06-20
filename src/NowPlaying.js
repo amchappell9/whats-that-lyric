@@ -1,9 +1,9 @@
 import React from 'react'
-import LyricsContainer from './LyricsContainer'
+// import LyricsContainer from './LyricsContainer'
 
 const NowPlaying = (props) => {
     return (
-        <div>
+        <div className="container mx-auto mt-4">
             <div className="flex justify-center mt-12">
                 <h1 className="text-grey text-3xl">Now Playing:</h1>
             </div>
@@ -15,7 +15,6 @@ const NowPlaying = (props) => {
                     Array.prototype.map.call(props.nowPlaying.artists, artist => artist.name).toString().split(',').join(', ')
                 }</p>
             </div>
-            <LyricsContainer songInfo={props.lyrics} />
         </div>
     )
 }

@@ -6,6 +6,7 @@ import NowPlaying from './NowPlaying';
 import Footer from './Footer';
 import SpotifyWebApi from 'spotify-web-api-js';
 import NothingPlaying from './NothingPlaying';
+import SongInfo from './SongInfo';
 
 const redirect_uri = 'http://localhost:3000';
 
@@ -37,7 +38,7 @@ class App extends Component {
         artists: [],
         albumArt: ''
       },
-      geniusSongInfo: {},
+      geniusSongInfo: null,
       nothingPlaying: false
     };
   }
@@ -134,11 +135,11 @@ class App extends Component {
         //   geniusSongInfo: response.response.hits[0]
         // })
 
-        this.getGeniusLyrics(response.response.hits[0]);
+        this.getGeniusSongInfo(response.response.hits[0]);
       });
   }
 
-  getGeniusLyrics = (geniusResult) => {
+  getGeniusSongInfo = (geniusResult) => {
     // Get URL from result
     const lyricsURL = "https://api.genius.com" + geniusResult.result.api_path + "?access_token=" + geniusClientAccessToken;
 
@@ -149,7 +150,7 @@ class App extends Component {
       })
       .then((response) => {
         this.setState({
-          geniusSongInfo: response
+          geniusSongInfo: response.response.song
         });
       })
   }
@@ -161,17 +162,20 @@ class App extends Component {
       content = <Login handleLogin={this.redirectToSpotifyAuth} />;
     } else if (this.state.isLoggedIn && this.state.nothingPlaying) {
       content = <NothingPlaying />;
-    } else if (this.state.isLoggedIn && this.state.nowPlaying.name !== 'Not Checked') {
-      content = <NowPlaying nowPlaying={this.state.nowPlaying} songInfo={this.state.geniusSongInfo} />;
+    } else if (this.state.isLoggedIn && this.state.nowPlaying.name !== 'Not Checked' && this.state.geniusSongInfo) {
+      content = (
+        <React.Fragment>
+          <NowPlaying nowPlaying={this.state.nowPlaying} songInfo={this.state.geniusSongInfo} />
+          <SongInfo songInfo={this.state.geniusSongInfo} />
+        </React.Fragment>
+      );
     }
 
     return (
       <div className="App">
         <Header isLoggedIn={this.state.isLoggedIn} handleLogout={this.handleLogout} />
         <main>
-          <div className="container mx-auto mt-4">
-            {content}
-          </div>
+          {content}
         </main>
         <Footer />
       </div>
