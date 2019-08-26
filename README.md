@@ -25,6 +25,8 @@
 * Performance enhancements, lower page load times
 * Better error handling
 * Redo UI
+* Setup eslint
+* Use Typescript
 
 
 ## Future Enhancements
