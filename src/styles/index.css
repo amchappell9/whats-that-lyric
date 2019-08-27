@@ -1,5 +1,6 @@
-@tailwind preflight;
-@tailwind components;
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
 
 
 /* Your custom CSS here. If npm start is running changes will be picked up and compiled into src/index.css automatically */
@@ -35,4 +36,4 @@ hr {
     @apply border-magenta;
 }
 
-@tailwind utilities;
+@import "tailwindcss/utilities";
