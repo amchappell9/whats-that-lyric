@@ -1,17 +1,72 @@
-import React from 'react'
+import React from 'react';
+import styled from 'styled-components';
 
-const Login = (props) => {
-    return (
-        <div className="loginContainer text-magenta mt-24">
-            <div className="flex justify-center text-5xl">
-                <h1>What's That Lyric?</h1>
-            </div>
-            <div className="flex justify-center mt-24">
-                <button onClick={props.handleLogin} className="border-4 border-magenta text-magenta text-2xl font-bold px-24 py-8 hover:text-black hover:bg-magenta hover:border-black">Login to Spotify</button>
-                {/* <a href="http://localhost:8888" className="border-4 border-magenta text-magenta text-3xl font-bold px-16 py-6 hover:text-black hover:bg-magenta hover:border-black no-underline">Login</a> */}
-            </div>
-        </div>
-    )
-}
+const LoginContainer = styled.div`
+  color: var(--magenta);
 
-export default Login
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // margin-top: var(--spacing-7);
+`;
+
+const CenteredFlexContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--spacing-6);
+`;
+
+const LogoContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const MainLogo = styled.h1`
+  font-size: var(--text-very-large);
+  font-weight: bold;
+`;
+
+const LoginButton = styled.button`
+  color: var(--magenta);
+  border: 4px solid var(--magenta);
+  background-color: inherit;
+
+  font-size: var(--text-2xl);
+  font-weight: bold;
+  padding: var(--spacing-3) var(--spacing-6);
+
+  display: inline-block;
+  text-align: center;
+  // vertical-align: middle;
+  background-image: none;
+  white-space: nowrap;
+  cursor: pointer;
+
+  :hover {
+    color: var(--background-grey);
+    background-color: var(--magenta);
+    border: 4px solid var(--background-grey);
+  }
+`;
+
+const Login = props => {
+  return (
+    <LoginContainer className='loginContainer'>
+      <div>
+        <LogoContainer>
+          <MainLogo>What's That Lyric?</MainLogo>
+        </LogoContainer>
+        <CenteredFlexContainer>
+          <LoginButton onClick={props.handleLogin}>
+            Login to Spotify
+          </LoginButton>
+        </CenteredFlexContainer>
+      </div>
+    </LoginContainer>
+  );
+};
+
+export default Login;

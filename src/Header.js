@@ -2,14 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledHeader = styled.header`
-  height: 1em;
+  grid-column: 1 / 4;
+  grid-row: 1;
+  // background-color: maroon;
   border-top: 4px solid var(--magenta);
-  padding: 20px;
 `;
 
 const StyledLogoContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  padding: var(--spacing-3) var(--spacing-7);
 `;
 
 const StyledLogoutContainer = styled.div`
@@ -33,6 +35,12 @@ const StyledLogoutButton = styled.div`
   padding: var(--spacing-1) var(--spacing-3);
   font-size: 1em;
   line-height: 1.42857143;
+
+  :hover {
+    color: var(--background-grey);
+    background-color: var(--magenta);
+    border: 4px solid var(--background-grey);
+  }
 }
 `;
 
@@ -44,24 +52,19 @@ const StyledLogo = styled.h1`
 
 const Header = ({ isLoggedIn, handleLogout }) => {
   return (
-    <StyledHeader>
-      <div className='container mx-auto pt-5 text-magenta'>
-        {isLoggedIn && (
-          <StyledLogoContainer>
-            <div>
-              <StyledLogo>What's That Lyric?</StyledLogo>
-            </div>
-            <StyledLogoutContainer className='text-right text-xl mt-4'>
-              <StyledLogoutButton
-                onClick={handleLogout}
-                className='text-magenta'
-              >
-                Logout
-              </StyledLogoutButton>
-            </StyledLogoutContainer>
-          </StyledLogoContainer>
-        )}
-      </div>
+    <StyledHeader className='StyledHeader'>
+      {isLoggedIn && (
+        <StyledLogoContainer className='StyledLogoContainer'>
+          <div>
+            <StyledLogo>What's That Lyric?</StyledLogo>
+          </div>
+          <StyledLogoutContainer className='StyledLogoutContainer'>
+            <StyledLogoutButton onClick={handleLogout} className='text-magenta'>
+              Logout
+            </StyledLogoutButton>
+          </StyledLogoutContainer>
+        </StyledLogoContainer>
+      )}
     </StyledHeader>
   );
 };
