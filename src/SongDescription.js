@@ -1,15 +1,38 @@
-import React from 'react'
+import React, { Component } from 'react';
+import styled from 'styled-components';
 
-export default function SongDescription(props) {
-    const description = props.description.dom.children.map((node) =>
-        <div>{node}</div>
-    );
+const SongDescriptionContainer = styled.div`
+  color: var(--grey-500);
 
-    console.log(description);
+  grid-row: 2;
+  grid-column: 1;
+  min-height: var(--song-info-min-sizing);
+  padding: var(--spacing-5);
+`;
+
+class SongDescription extends Component {
+  getSongDescriptionHTML = description => {
+    if (description.dom.children.length > 0) {
+      return <>Somehow needs to return song description from nodes</>;
+    }
+
+    return <></>;
+  };
+
+  render() {
+    const { description } = this.props;
+    const descriptionHtml = this.getSongDescriptionHTML(description);
 
     return (
-        <div className="flex1 px-4 py-2 m-2">
-            {/* {description} */}
-        </div>
-    )
+      <SongDescriptionContainer className='flex1 px-4 py-2 m-2'>
+        {descriptionHtml}
+      </SongDescriptionContainer>
+    );
+  }
 }
+
+// SongDescription.propTypes = {
+//
+// }
+
+export default SongDescription;

@@ -7,6 +7,7 @@ const NowPlayingContainer = styled.div`
   grid-row: 1;
   grid-column: 1 / 4;
   margin-top: var(--spacing-5);
+  padding-bottom: var(--spacing-7);
 `;
 
 const CenteredDiv = styled.div`

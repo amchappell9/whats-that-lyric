@@ -38,7 +38,7 @@ const StyledMain = styled.main`
 const NowPlayingSubGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 2;
+  grid-template-rows: 2fr;
 `;
 
 class App extends Component {

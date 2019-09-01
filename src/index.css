@@ -16,6 +16,9 @@
   --grey-900: #212121;
 
   /* Sizes */
+  --text-sm: 0.5em;
+  --text-m: 0.8em;
+  --text-l: 1.2em;
   --text-xl: 1.5em;
   --text-2xl: 2em;
   --text-3xl: 2.5em;
@@ -31,6 +34,9 @@
   --spacing-5: 32px;
   --spacing-6: 48px;
   --spacing-7: 64px;
+
+  /* Song Info Sizing */
+  --song-info-min-sizing: 400px;
 }
 
 html {
@@ -40,6 +46,7 @@ html {
 body {
   background-color: var(--background-grey);
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 .lyricsContainer p {

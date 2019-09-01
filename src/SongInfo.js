@@ -1,20 +1,21 @@
-import React from 'react'
+import React from 'react';
 import SongDescription from './SongDescription';
+import SongLinks from './SongLinks';
+import SongCredits from './SongCredits';
 
-export default function SongInfo(props) {
-    return (
-        <div className="flex">
-            {/* <Description /> */}
-            {/* {console.log(props.songInfo.description)} */}
-            <SongDescription description={props.songInfo.description} />
-            {/* Links */}
-            <div className="flex1 px-4 py-2 m-2">
-
-            </div>
-            {/* Song Credit */}
-            <div className="flex1 px-4 py-2 m-2">
-
-            </div>
-        </div>
-    )
+export default function SongInfo({ songInfo }) {
+  return (
+    <>
+      <SongDescription description={songInfo.description} />
+      <SongLinks
+        geniusHref={songInfo.url}
+        geniusAlbumHref={songInfo.album.url}
+      />
+      <SongCredits
+        producersArray={songInfo.producer_artists}
+        album={songInfo.album}
+        songRelationships={songInfo.song_relationships}
+      />
+    </>
+  );
 }

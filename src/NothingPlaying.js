@@ -10,17 +10,32 @@ const StyledContainer = styled.div`
   justify-content: center;
 `;
 
+const CenteredText = styled.div`
+  text-align: center;
+`;
+
 const StyledMessage = styled.span`
-  font-size: var(--text-2xl);
+  font-size: var(--text-3xl);
   font-weight: bold;
+  display: block;
+  margin-bottom: var(--spacing-4);
+`;
+
+const StyledSubText = styled.span`
+  color: var(--grey-500);
+  display: block;
+  font-size: var(--text-l);
 `;
 
 const NothingPlaying = () => {
   return (
-    <StyledContainer className='container mx-auto mt-4'>
-      <div className='text-magenta'>
+    <StyledContainer>
+      <CenteredText>
         <StyledMessage>Nothing Playing :(</StyledMessage>
-      </div>
+        <StyledSubText>
+          Start playing any song on your Spotify to see song info.
+        </StyledSubText>
+      </CenteredText>
     </StyledContainer>
   );
 };
