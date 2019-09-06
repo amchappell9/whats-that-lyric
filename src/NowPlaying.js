@@ -45,21 +45,17 @@ const TextContainer = styled.div`
 
 const NowPlaying = props => {
   return (
-    <NowPlayingContainer className='NowPlayingContainer'>
+    <NowPlayingContainer>
       <CenteredDiv>
         <CenteredText>
-          <TextContainer className='flex justify-center mt-12'>
-            <NowPlayingHeading className='text-grey text-3xl'>
-              Now Playing:
-            </NowPlayingHeading>
+          <TextContainer>
+            <NowPlayingHeading>Now Playing:</NowPlayingHeading>
           </TextContainer>
-          <TextContainer className='flex justify-center'>
-            <SongName className='text-magenta font-bold text-5xl'>
-              {props.nowPlaying.songName}
-            </SongName>
+          <TextContainer>
+            <SongName>{props.nowPlaying.songName}</SongName>
           </TextContainer>
-          <TextContainer className='flex justify-center'>
-            <ArtistName className='text-magenta font-bold text-3xl'>
+          <TextContainer>
+            <ArtistName>
               By{' '}
               {Array.prototype.map
                 .call(props.nowPlaying.artists, artist => artist.name)

@@ -54,7 +54,7 @@ const LoginButton = styled.button`
 
 const Login = props => {
   return (
-    <LoginContainer className='loginContainer'>
+    <LoginContainer>
       <div>
         <LogoContainer>
           <MainLogo>What's That Lyric?</MainLogo>

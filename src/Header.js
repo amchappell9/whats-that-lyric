@@ -59,7 +59,7 @@ const Header = ({ isLoggedIn, handleLogout }) => {
             <StyledLogo>What's That Lyric?</StyledLogo>
           </div>
           <StyledLogoutContainer className='StyledLogoutContainer'>
-            <StyledLogoutButton onClick={handleLogout} className='text-magenta'>
+            <StyledLogoutButton onClick={handleLogout}>
               Logout
             </StyledLogoutButton>
           </StyledLogoutContainer>
