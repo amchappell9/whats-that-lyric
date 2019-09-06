@@ -27,6 +27,7 @@
 * Redo UI
 * Setup eslint
 * Use Typescript
+* Add animations
 
 
 ## Future Enhancements

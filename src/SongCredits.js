@@ -2,6 +2,8 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import songRelationshipTitles from './SongRelationshipTitles';
+
 const SongCreditsContainer = styled.div`
   grid-row: 2;
   grid-column: 3;
@@ -21,19 +23,20 @@ const CreditHeading = styled.span`
   margin-bottom: var(--spacing-1);
 `;
 
-const CreditContent = styled.span`
-  color: var(--magenta);
-  font-size: var(--text-l);
-  font-weight: bold;
+// const CreditContent = styled.span`
+//   color: var(--magenta);
+//   font-size: var(--text-l);
+//   font-weight: bold;
 
-  display: block;
-`;
+//   display: block;
+// `;
 
 const CreditContentLink = styled.a`
   color: var(--magenta);
   font-size: var(--text-l);
   font-weight: bold;
   text-decoration: none;
+  line-height: 1.2;
 
   display: block;
 
@@ -48,6 +51,7 @@ const CreditContentLinkInline = styled.a`
   font-weight: bold;
   text-decoration: none;
   margin-right: 5px;
+  line-height: 1.2;
 
   :hover {
     text-decoration: underline;
@@ -88,6 +92,36 @@ const SongCredits = ({ producersArray, album, songRelationships }) => {
         </CreditContentLink>
       </CreditContainer>
     );
+  }
+
+  if (songRelationships) {
+    songRelationshipsInfo = songRelationships.map(relationship => {
+      if (typeof songRelationshipTitles[relationship.type] !== 'undefined') {
+        const relationshipTitle = songRelationshipTitles[relationship.type];
+
+        if (relationship.songs && relationship.songs.length > 0) {
+          const songs = relationship.songs;
+          return (
+            <CreditContainer key={relationship.type}>
+              <CreditHeading>{relationshipTitle}:</CreditHeading>
+              {songs.map((songInfo, index) => {
+                return (
+                  <CreditContentLink
+                    href={songInfo.url}
+                    target='_blank'
+                    key={songInfo.id}
+                  >
+                    {songInfo.full_title}
+                  </CreditContentLink>
+                );
+              })}
+            </CreditContainer>
+          );
+        }
+      }
+
+      return <React.Fragment key={relationship.type}></React.Fragment>;
+    });
   }
 
   return (
