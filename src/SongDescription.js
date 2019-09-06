@@ -11,22 +11,40 @@ const SongDescriptionContainer = styled.div`
 `;
 
 class SongDescription extends Component {
-  getSongDescriptionHTML = description => {
-    if (description.dom.children.length > 0) {
-      return <>Somehow needs to return song description from nodes</>;
-    }
-
-    return <></>;
+  getDescriptionMarkup = description => {
+    // if (
+    //   description.dom &&
+    //   description.dom.children &&
+    //   description.dom.children.length > 0
+    // ) {
+    //   description.dom.children.map(child => {
+    //     if (typeof child === 'object') {
+    //       if (child.tag && child.tag === 'p') {
+    //         if (child.children && child.children.length > 0) {
+    //           child.children.map(subChild => {
+    //             if (typeof subChild === 'string') {
+    //               return subChild;
+    //             }
+    //             return <></>;
+    //           });
+    //         } else {
+    //           return <p></p>;
+    //         }
+    //       }
+    //     } else if (typeof child === 'string') {
+    //       return <br />;
+    //     }
+    //     return <></>;
+    //   });
+    // }
   };
 
   render() {
     const { description } = this.props;
-    const descriptionHtml = this.getSongDescriptionHTML(description);
+    const descriptionMarkup = this.getDescriptionMarkup(description);
 
     return (
-      <SongDescriptionContainer className='flex1 px-4 py-2 m-2'>
-        {descriptionHtml}
-      </SongDescriptionContainer>
+      <SongDescriptionContainer>{descriptionMarkup}</SongDescriptionContainer>
     );
   }
 }

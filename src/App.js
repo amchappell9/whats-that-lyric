@@ -187,11 +187,7 @@ class App extends Component {
 
   getGeniusSongInfo = geniusResult => {
     // Get URL from result
-    const lyricsURL =
-      'https://api.genius.com' +
-      geniusResult.result.api_path +
-      '?access_token=' +
-      geniusClientAccessToken;
+    const lyricsURL = `https://api.genius.com${geniusResult.result.api_path}?access_token=${geniusClientAccessToken}`;
 
     // Call endpoint
     fetch(lyricsURL)
