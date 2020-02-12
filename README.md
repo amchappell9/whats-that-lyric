@@ -28,6 +28,7 @@
 * Setup eslint
 * Use Typescript
 * Add animations
+* Redo logic with hooks
 
 
 ## Future Enhancements
