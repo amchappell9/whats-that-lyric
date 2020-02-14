@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const SongDescriptionContainer = styled.div`
@@ -10,47 +10,14 @@ const SongDescriptionContainer = styled.div`
   padding: var(--spacing-5);
 `;
 
-class SongDescription extends Component {
-  getDescriptionMarkup = description => {
-    // if (
-    //   description.dom &&
-    //   description.dom.children &&
-    //   description.dom.children.length > 0
-    // ) {
-    //   description.dom.children.map(child => {
-    //     if (typeof child === 'object') {
-    //       if (child.tag && child.tag === 'p') {
-    //         if (child.children && child.children.length > 0) {
-    //           child.children.map(subChild => {
-    //             if (typeof subChild === 'string') {
-    //               return subChild;
-    //             }
-    //             return <></>;
-    //           });
-    //         } else {
-    //           return <p></p>;
-    //         }
-    //       }
-    //     } else if (typeof child === 'string') {
-    //       return <br />;
-    //     }
-    //     return <></>;
-    //   });
-    // }
-  };
+const SongDescription = ({ description: { html: descriptionHTML } }) => {
+  return (
+    <SongDescriptionContainer>
+      <div dangerouslySetInnerHTML={{ __html: descriptionHTML }} />
+    </SongDescriptionContainer>
+  );
+};
 
-  render() {
-    const { description } = this.props;
-    const descriptionMarkup = this.getDescriptionMarkup(description);
-
-    return (
-      <SongDescriptionContainer>{descriptionMarkup}</SongDescriptionContainer>
-    );
-  }
-}
-
-// SongDescription.propTypes = {
-//
-// }
+SongDescription.propTypes = {};
 
 export default SongDescription;

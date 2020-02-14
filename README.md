@@ -20,6 +20,7 @@
 - ~~Need to crawl API responses to figure out what info I could display~~
 - Reorganize components for new layout
 - Redo logic with hooks
+- Refactor SongCredits.js
 - Change ajax requests to axios
 - Setup higher order component to feed info to whatever displays the genius info
 - ~~Setup auto recheck for song change on spotify~~ -might need to refine further

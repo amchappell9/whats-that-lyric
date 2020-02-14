@@ -19,7 +19,7 @@ const spotifyStateKey = 'spotify_auth_state';
 // API calls to genius can be made like this: api.genius.com/search?q=Kendrick%20Lamar&access_token=WOfEtjZLwyar4cFto_v8bpb9ieA_YVbTxVJwcs7AW9yJbAuUe8La3FKSazhtIbJg
 // const geniusClientId = 'JmGJFDuspgC_KGbVc340ZrWrLMKVlKUx9S3BGfhBQT65EyZPxSlokCWy3fI9onRA';
 const geniusClientAccessToken =
-  'WOfEtjZLwyar4cFto_v8bpb9ieA_YVbTxVJwcs7AW9yJbAuUe8La3FKSazhtIbJg';
+  '2dviAh69wti7Af7J1XFb5qEE3YYfqMhG6PUV_Xy4gDjVwp0OuqgD0ygwInqs8pbG';
 
 const StyledApp = styled.div`
   height: 100vh;
@@ -165,29 +165,22 @@ class App extends Component {
   };
 
   searchGeniusAPI = (songName, artistName) => {
-    fetch(
-      'https://api.genius.com/search?access_token=' +
-        geniusClientAccessToken +
-        '&q=' +
-        encodeURI(songName) +
-        ' ' +
-        encodeURI(artistName)
-    )
+    const geniusSearchURL = `https://api.genius.com/search?access_token=${geniusClientAccessToken}&q=${encodeURI(
+      songName
+    )} ${encodeURI(artistName)}`;
+
+    fetch(geniusSearchURL)
       .then(response => {
         return response.json();
       })
       .then(response => {
-        // this.setState({
-        //   geniusSongInfo: response.response.hits[0]
-        // })
-
         this.getGeniusSongInfo(response.response.hits[0]);
       });
   };
 
   getGeniusSongInfo = geniusResult => {
     // Get URL from result
-    const lyricsURL = `https://api.genius.com${geniusResult.result.api_path}?access_token=${geniusClientAccessToken}`;
+    const lyricsURL = `https://api.genius.com${geniusResult.result.api_path}?access_token=${geniusClientAccessToken}&text_format=html`;
 
     // Call endpoint
     fetch(lyricsURL)

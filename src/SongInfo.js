@@ -3,7 +3,7 @@ import SongDescription from './SongDescription';
 import SongLinks from './SongLinks';
 import SongCredits from './SongCredits';
 
-export default function SongInfo({ songInfo }) {
+const SongInfo = ({ songInfo }) => {
   return (
     <>
       <SongDescription description={songInfo.description} />
@@ -18,4 +18,6 @@ export default function SongInfo({ songInfo }) {
       />
     </>
   );
-}
+};
+
+export default SongInfo;
