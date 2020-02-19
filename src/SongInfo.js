@@ -7,10 +7,7 @@ const SongInfo = ({ songInfo }) => {
   return (
     <>
       <SongDescription description={songInfo.description} />
-      <SongLinks
-        geniusHref={songInfo.url}
-        geniusAlbumHref={songInfo.album.url}
-      />
+      <SongLinks songInfo={songInfo} />
       <SongCredits
         producersArray={songInfo.producer_artists}
         album={songInfo.album}

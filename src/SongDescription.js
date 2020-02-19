@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import './SongDescription.scss';
 
 const SongDescriptionContainer = styled.div`
   color: var(--grey-500);
@@ -13,7 +14,10 @@ const SongDescriptionContainer = styled.div`
 const SongDescription = ({ description: { html: descriptionHTML } }) => {
   return (
     <SongDescriptionContainer>
-      <div dangerouslySetInnerHTML={{ __html: descriptionHTML }} />
+      <div
+        className='songDescriptionContainer'
+        dangerouslySetInnerHTML={{ __html: descriptionHTML }}
+      />
     </SongDescriptionContainer>
   );
 };
