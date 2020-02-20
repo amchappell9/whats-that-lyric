@@ -4,6 +4,7 @@ import { Reset } from 'styled-reset';
 import { createGlobalStyle } from 'styled-components';
 import './index.css';
 import App from './App';
+import App_New from './App_New';
 import * as serviceWorker from './serviceWorker';
 
 const GlobalStyle = createGlobalStyle`
@@ -20,7 +21,8 @@ ReactDOM.render(
   <>
     <Reset />
     <GlobalStyle />
-    <App />
+    {/* <App /> */}
+    <App_New />
   </>,
   document.getElementById('root')
 );
