@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import SpotifyWebApi from 'spotify-web-api-js';
 
 import Header from './Header';
@@ -100,57 +99,58 @@ const App = () => {
   const [nothingPlaying, setNothingPlaying] = useState(false);
 
   useEffect(() => {
+    // Move to custom hooks?
+    const getNowPlaying = () => {
+      spotifyApi.getMyCurrentPlaybackState().then(response => {
+        if (response) {
+          setNowPlaying({
+            songName: response.item.name,
+            artists: response.item.artists,
+            albumArt: response.item.album.images[0].url
+          });
+          setNothingPlaying(false);
+          searchGeniusAPI(response.item.name, response.item.artists[0].name);
+        } else {
+          // Nothing Playing
+          setNothingPlaying(true);
+          setNowPlaying(null);
+        }
+      });
+    };
+
+    const searchGeniusAPI = (songName, artistName) => {
+      const geniusSearchURL = `https://api.genius.com/search?access_token=${geniusClientAccessToken}&q=${encodeURI(
+        songName
+      )} ${encodeURI(artistName)}`;
+
+      fetch(geniusSearchURL)
+        .then(response => {
+          return response.json();
+        })
+        .then(response => {
+          // We're hoping that the first result is the best one
+          getGeniusSongInfo(response.response.hits[0]);
+        });
+    };
+
+    const getGeniusSongInfo = geniusSearchResult => {
+      const lyricsURL = `https://api.genius.com${geniusSearchResult.result.api_path}?access_token=${geniusClientAccessToken}&text_format=html`;
+
+      fetch(lyricsURL)
+        .then(response => {
+          return response.json();
+        })
+        .then(response => {
+          setGeniusInfo(response.response.song);
+        });
+    };
+
     if (token) {
       spotifyApi.setAccessToken(token);
 
       getNowPlaying();
     }
   }, [token]);
-
-  const getNowPlaying = () => {
-    spotifyApi.getMyCurrentPlaybackState().then(response => {
-      if (response) {
-        setNowPlaying({
-          songName: response.item.name,
-          artists: response.item.artists,
-          albumArt: response.item.album.images[0].url
-        });
-        setNothingPlaying(false);
-        searchGeniusAPI(response.item.name, response.item.artists[0].name);
-      } else {
-        // Nothing Playing
-        setNothingPlaying(true);
-        setNowPlaying(null);
-      }
-    });
-  };
-
-  const searchGeniusAPI = (songName, artistName) => {
-    const geniusSearchURL = `https://api.genius.com/search?access_token=${geniusClientAccessToken}&q=${encodeURI(
-      songName
-    )} ${encodeURI(artistName)}`;
-
-    fetch(geniusSearchURL)
-      .then(response => {
-        return response.json();
-      })
-      .then(response => {
-        // We're hoping that the first result is the best one
-        getGeniusSongInfo(response.response.hits[0]);
-      });
-  };
-
-  const getGeniusSongInfo = geniusSearchResult => {
-    const lyricsURL = `https://api.genius.com${geniusSearchResult.result.api_path}?access_token=${geniusClientAccessToken}&text_format=html`;
-
-    fetch(lyricsURL)
-      .then(response => {
-        return response.json();
-      })
-      .then(response => {
-        setGeniusInfo(response.response.song);
-      });
-  };
 
   let content;
 
@@ -175,7 +175,5 @@ const App = () => {
     </StyledApp>
   );
 };
-
-App.propTypes = {};
 
 export default App;
