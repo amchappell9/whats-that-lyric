@@ -10,15 +10,14 @@ import NowPlaying from './NowPlaying';
 import SongInfo from './SongInfo';
 
 const spotifyApi = new SpotifyWebApi();
-const spotifyClientId = 'a0cb7862b26747b2912a710a0d98b39a';
+const spotifyClientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
+const spotifyStateKey = process.env.REACT_APP_SPOTIFY_STATE_KEY;
+const redirect_uri = process.env.REACT_APP_REDIRECT_URL;
 const spotifyScope = 'user-read-playback-state';
-const spotifyStateKey = 'spotify_auth_state';
-const redirect_uri = 'http://localhost:3000';
 
-// API calls to genius can be made like this: api.genius.com/search?q=Kendrick%20Lamar&access_token=WOfEtjZLwyar4cFto_v8bpb9ieA_YVbTxVJwcs7AW9yJbAuUe8La3FKSazhtIbJg
-// const geniusClientId = 'JmGJFDuspgC_KGbVc340ZrWrLMKVlKUx9S3BGfhBQT65EyZPxSlokCWy3fI9onRA';
+// API calls to genius can be made like this: api.genius.com/search?q=Kendrick%20Lamar&access_token=accessTokenValue
 const geniusClientAccessToken =
-  '2dviAh69wti7Af7J1XFb5qEE3YYfqMhG6PUV_Xy4gDjVwp0OuqgD0ygwInqs8pbG';
+  process.env.REACT_APP_GENIUS_CLIENT_ACCESS_TOKEN;
 
 const StyledApp = styled.div`
   height: 100vh;
