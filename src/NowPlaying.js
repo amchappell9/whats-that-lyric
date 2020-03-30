@@ -43,7 +43,7 @@ const TextContainer = styled.div`
   margin-bottom: var(--spacing-2);
 `;
 
-const NowPlaying = props => {
+const NowPlaying = ({ nowPlaying }) => {
   return (
     <NowPlayingContainer>
       <CenteredDiv>
@@ -52,13 +52,13 @@ const NowPlaying = props => {
             <NowPlayingHeading>Now Playing:</NowPlayingHeading>
           </TextContainer>
           <TextContainer>
-            <SongName>{props.nowPlaying.songName}</SongName>
+            <SongName>{nowPlaying.songName}</SongName>
           </TextContainer>
           <TextContainer>
             <ArtistName>
               By{' '}
               {Array.prototype.map
-                .call(props.nowPlaying.artists, artist => artist.name)
+                .call(nowPlaying.artists, artist => artist.name)
                 .toString()
                 .split(',')
                 .join(', ')}

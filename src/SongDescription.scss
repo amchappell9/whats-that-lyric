@@ -1,0 +1,16 @@
+.songDescriptionContainer {
+  font-size: var(--text-l);
+
+  p {
+    margin-bottom: 10px;
+  }
+
+  a {
+    color: var(--magenta);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

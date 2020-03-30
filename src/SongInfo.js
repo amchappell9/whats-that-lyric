@@ -3,14 +3,11 @@ import SongDescription from './SongDescription';
 import SongLinks from './SongLinks';
 import SongCredits from './SongCredits';
 
-export default function SongInfo({ songInfo }) {
+const SongInfo = ({ songInfo }) => {
   return (
     <>
       <SongDescription description={songInfo.description} />
-      <SongLinks
-        geniusHref={songInfo.url}
-        geniusAlbumHref={songInfo.album.url}
-      />
+      <SongLinks songInfo={songInfo} />
       <SongCredits
         producersArray={songInfo.producer_artists}
         album={songInfo.album}
@@ -18,4 +15,6 @@ export default function SongInfo({ songInfo }) {
       />
     </>
   );
-}
+};
+
+export default SongInfo;

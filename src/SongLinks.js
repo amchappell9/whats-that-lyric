@@ -35,22 +35,25 @@ const SongLink = styled.a`
   }
 `;
 
-const SongLinks = ({ geniusHref, geniusAlbumHref }) => {
+const SongLinks = ({
+  songInfo,
+  songInfo: { url: geniusHref },
+  songInfo: { album }
+}) => {
   return (
     <SongLinksContainer>
       <SongLink href={geniusHref} target='_blank'>
         Genius Lyrics
       </SongLink>
-
-      <SongLink href={geniusAlbumHref} target='_blank'>
-        Album
-      </SongLink>
+      {album !== null ? (
+        <SongLink href={album.url} target='_blank'>
+          Album
+        </SongLink>
+      ) : (
+        <></>
+      )}
     </SongLinksContainer>
   );
 };
-
-// SongLinks.propTypes = {
-
-// }
 
 export default SongLinks;

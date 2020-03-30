@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Reset } from 'styled-reset';
 import { createGlobalStyle } from 'styled-components';
 import './index.css';
+// import App_Old from './App_Old';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
@@ -20,6 +21,7 @@ ReactDOM.render(
   <>
     <Reset />
     <GlobalStyle />
+    {/* <App_Old /> */}
     <App />
   </>,
   document.getElementById('root')
