@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/05b81070-9cb5-4e3d-b18c-9c57e11215e0/deploy-status)](https://app.netlify.com/sites/ecstatic-shirley-52c218/deploys)
+
 # What's that lyric?
 
 What's that lyric will allow you to log into your Spotify and view song information on the current song you're listening to. Built using React and styled-components. Uses the Spotify and Genius APIs.
