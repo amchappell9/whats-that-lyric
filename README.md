@@ -16,6 +16,7 @@ What's that lyric will allow you to log into your Spotify and view song informat
 - ~~Reorganize components for new layout~~
 - ~~Redo logic with hooks~~
 - ~~Move keys to .env files~~
+- Add Loading Widget
 - Add functionality to refresh content when you reload the tab (possibly with service worker?)
 - Refactor SongCredits.js
 - Change ajax requests to axios
