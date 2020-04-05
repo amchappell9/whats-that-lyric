@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const PHONE_BREAKPOINT = process.env.REACT_APP_PHONE_BREAKPOINT;
+const TABLET_BREAKPOINT = process.env.REACT_APP_TABLET_BREAKPOINT;
+
 const LoginContainer = styled.div`
   color: var(--magenta);
 
@@ -8,7 +11,6 @@ const LoginContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  // margin-top: var(--spacing-7);
 `;
 
 const CenteredFlexContainer = styled.div`
@@ -16,6 +18,10 @@ const CenteredFlexContainer = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: var(--spacing-6);
+
+  @media (max-width: ${PHONE_BREAKPOINT}px) {
+    margin-top: var(--spacing-5);
+  }
 `;
 
 const LogoContainer = styled.div`
@@ -27,6 +33,14 @@ const LogoContainer = styled.div`
 const MainLogo = styled.h1`
   font-size: var(--text-very-large);
   font-weight: bold;
+
+  @media (max-width: ${PHONE_BREAKPOINT}px) {
+    font-size: var(--text-2xl);
+  }
+
+  @media (max-width: ${TABLET_BREAKPOINT}px) {
+    font-size: var(--text-5xl);
+  }
 `;
 
 const LoginButton = styled.button`
@@ -40,7 +54,6 @@ const LoginButton = styled.button`
 
   display: inline-block;
   text-align: center;
-  // vertical-align: middle;
   background-image: none;
   white-space: nowrap;
   cursor: pointer;
@@ -49,6 +62,10 @@ const LoginButton = styled.button`
     color: var(--background-grey);
     background-color: var(--magenta);
     border: 4px solid var(--background-grey);
+  }
+
+  @media (max-width: ${PHONE_BREAKPOINT}px) {
+    font-size: var(--text-l);
   }
 `;
 

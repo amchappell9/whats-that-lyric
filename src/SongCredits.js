@@ -4,11 +4,26 @@ import styled from 'styled-components';
 
 import songRelationshipTitles from './SongRelationshipTitles';
 
+const PHONE_BREAKPOINT = process.env.REACT_APP_PHONE_BREAKPOINT;
+const TABLET_BREAKPOINT = process.env.REACT_APP_TABLET_BREAKPOINT;
+
 const SongCreditsContainer = styled.div`
   grid-row: 2;
   grid-column: 3;
   min-height: var(--song-info-min-sizing);
   padding: var(--spacing-5);
+
+  @media (max-width: ${PHONE_BREAKPOINT}px) {
+    grid-column: 1;
+    grid-row: 4;
+    min-height: 0px;
+  }
+
+  @media (max-width: ${TABLET_BREAKPOINT}px) {
+    grid-column: 1 / 4;
+    grid-row: 4;
+    min-height: 0px;
+  }
 `;
 
 const CreditContainer = styled.div`
@@ -22,14 +37,6 @@ const CreditHeading = styled.span`
   display: block;
   margin-bottom: var(--spacing-1);
 `;
-
-// const CreditContent = styled.span`
-//   color: var(--magenta);
-//   font-size: var(--text-l);
-//   font-weight: bold;
-
-//   display: block;
-// `;
 
 const CreditContentLink = styled.a`
   color: var(--magenta);

@@ -19,12 +19,20 @@ const StyledMessage = styled.span`
   font-weight: bold;
   display: block;
   margin-bottom: var(--spacing-4);
+
+  @media (max-width: 375px) {
+    font-size: var(--text-2xl);
+  }
 `;
 
 const StyledSubText = styled.span`
   color: var(--grey-500);
   display: block;
   font-size: var(--text-l);
+
+  @media (max-width: 375px) {
+    font-size: var(--text-l);
+  }
 `;
 
 const NothingPlaying = () => {

@@ -2,11 +2,26 @@ import React from 'react';
 // import PropTypes from 'prop-types'
 import styled from 'styled-components';
 
+const PHONE_BREAKPOINT = process.env.REACT_APP_PHONE_BREAKPOINT;
+const TABLET_BREAKPOINT = process.env.REACT_APP_TABLET_BREAKPOINT;
+
 const SongLinksContainer = styled.div`
   grid-row: 2;
   grid-column: 2;
   min-height: var(--song-info-min-sizing);
   padding: var(--spacing-5);
+
+  @media (max-width: ${PHONE_BREAKPOINT}px) {
+    grid-column: 1;
+    grid-row: 2;
+    min-height: 0px;
+  }
+
+  @media (max-width: ${TABLET_BREAKPOINT}px) {
+    grid-column: 1 / 4;
+    grid-row: 2;
+    min-height: 0px;
+  }
 `;
 
 const SongLink = styled.a`
@@ -22,7 +37,6 @@ const SongLink = styled.a`
 
   display: block;
   text-align: center;
-  // vertical-align: middle;
   background-image: none;
   white-space: nowrap;
   cursor: pointer;

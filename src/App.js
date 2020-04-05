@@ -15,6 +15,9 @@ const spotifyStateKey = process.env.REACT_APP_SPOTIFY_STATE_KEY;
 const redirect_uri = process.env.REACT_APP_REDIRECT_URL;
 const spotifyScope = 'user-read-playback-state';
 
+const PHONE_BREAKPOINT = process.env.REACT_APP_PHONE_BREAKPOINT;
+const TABLET_BREAKPOINT = process.env.REACT_APP_TABLET_BREAKPOINT;
+
 // API calls to genius can be made like this: api.genius.com/search?q=Kendrick%20Lamar&access_token=accessTokenValue
 const geniusClientAccessToken =
   process.env.REACT_APP_GENIUS_CLIENT_ACCESS_TOKEN;
@@ -37,6 +40,16 @@ const NowPlayingSubGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 2fr;
+
+  @media (max-width: ${PHONE_BREAKPOINT}px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 4fr;
+  }
+
+  @media (max-width: ${TABLET_BREAKPOINT}px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 4fr;
+  }
 `;
 
 const getHashParams = () => {
