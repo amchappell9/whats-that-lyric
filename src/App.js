@@ -12,7 +12,7 @@ import SongInfo from './SongInfo';
 const spotifyApi = new SpotifyWebApi();
 const spotifyClientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
 const spotifyStateKey = process.env.REACT_APP_SPOTIFY_STATE_KEY;
-const redirect_uri = process.env.REACT_APP_REDIRECT_URL;
+const redirect_uri = window.location.origin;
 const spotifyScope = 'user-read-playback-state';
 
 const PHONE_BREAKPOINT = process.env.REACT_APP_PHONE_BREAKPOINT;
