@@ -27,13 +27,16 @@ What's that lyric will allow you to log into your Spotify and view song informat
 - Setup deployment pipeline
   - eslint integrations
   - prettier integrations
+  - Lighthouse Audits
   - Deployment
 - Performance enhancements, lower page load times
 - Better error handling
 - Enhance UI
   - Animations
+    - https://www.framer.com/learn/guide/animated-text/
   - Better mobile responsiveness
   - Add background patterns
+  - Skeleton loading templates?
 
 ## Resources Used
 
