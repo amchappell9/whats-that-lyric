@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const PHONE_BREAKPOINT = process.env.REACT_APP_PHONE_BREAKPOINT;
+const TABLET_BREAKPOINT = process.env.REACT_APP_TABLET_BREAKPOINT;
+
 const StyledHeader = styled.header`
   grid-column: 1 / 4;
   grid-row: 1;
-  // background-color: maroon;
   border-top: 4px solid var(--magenta);
 `;
 
@@ -12,11 +14,18 @@ const StyledLogoContainer = styled.div`
   display: flex;
   justify-content: space-between;
   padding: var(--spacing-3) var(--spacing-7);
+
+  @media (max-width: ${PHONE_BREAKPOINT}px) {
+    padding: var(--spacing-1) var(--spacing-3);
+  }
+
+  @media (max-width: ${TABLET_BREAKPOINT}px) {
+    padding: var(--spacing-3) var(--spacing-3);
+  }
 `;
 
 const StyledLogoutContainer = styled.div`
   text-align: right;
-  text-size: var(--text-xl);
   margin-top: var(--spacing-1);
 `;
 
@@ -33,7 +42,6 @@ const StyledLogoutButton = styled.div`
   background-image: none;
   white-space: nowrap;
   padding: var(--spacing-1) var(--spacing-3);
-  font-size: 1em;
   line-height: 1.42857143;
 
   :hover {
@@ -41,13 +49,25 @@ const StyledLogoutButton = styled.div`
     background-color: var(--magenta);
     border: 4px solid var(--background-grey);
   }
-}
+
+  @media (max-width: ${PHONE_BREAKPOINT}px) {
+    font-size: var(--text-m);
+  }
 `;
 
 const StyledLogo = styled.h1`
-  font-size: 42px;
+  font-size: var(--text-3xl);
   font-weight: bold;
   color: var(--magenta);
+
+  @media (max-width: ${PHONE_BREAKPOINT}px) {
+    font-size: var(--text-l);
+    padding-top: var(--spacing-3);
+  }
+
+  @media (max-width: ${TABLET_BREAKPOINT}px) {
+    padding-top: var(--spacing-1);
+  }
 `;
 
 const Header = ({ isLoggedIn, handleLogout }) => {
