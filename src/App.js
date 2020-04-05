@@ -5,6 +5,7 @@ import SpotifyWebApi from 'spotify-web-api-js';
 import Header from './Header';
 import Footer from './Footer';
 import Login from './Login';
+import Loading from './Loading';
 import NothingPlaying from './NothingPlaying';
 import NowPlaying from './NowPlaying';
 import SongInfo from './SongInfo';
@@ -109,10 +110,13 @@ const App = () => {
   const [nowPlaying, setNowPlaying] = useState(null);
   const [geniusInfo, setGeniusInfo] = useState(null);
   const [nothingPlaying, setNothingPlaying] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     // Move to custom hooks?
     const getNowPlaying = () => {
+      setIsLoading(true);
+
       spotifyApi.getMyCurrentPlaybackState().then(response => {
         if (response) {
           setNowPlaying({
@@ -126,6 +130,7 @@ const App = () => {
           // Nothing Playing
           setNothingPlaying(true);
           setNowPlaying(null);
+          setIsLoading(false);
         }
       });
     };
@@ -154,6 +159,7 @@ const App = () => {
         })
         .then(response => {
           setGeniusInfo(response.response.song);
+          setIsLoading(false);
         });
     };
 
@@ -168,6 +174,8 @@ const App = () => {
 
   if (!isAuthenticated) {
     content = <Login handleLogin={redirectToSpotifyAuth} />;
+  } else if (isLoading) {
+    content = <Loading />;
   } else if (isAuthenticated && nothingPlaying) {
     content = <NothingPlaying />;
   } else if (isAuthenticated && nowPlaying && geniusInfo) {
