@@ -1,11 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import useWindowDimensions from './customHooks';
 import './SongDescription.scss';
 
 const PHONE_BREAKPOINT = process.env.REACT_APP_PHONE_BREAKPOINT;
 const TABLET_BREAKPOINT = process.env.REACT_APP_TABLET_BREAKPOINT;
 
-const SongDescriptionContainer = styled.div`
+const TRANSITION_DELAY = process.env.REACT_APP_TRANSITION_DELAY;
+
+const SongDescriptionContainer = styled(motion.div)`
   color: var(--grey-500);
 
   grid-row: 2;
@@ -27,8 +31,17 @@ const SongDescriptionContainer = styled.div`
 `;
 
 const SongDescription = ({ description: { html: descriptionHTML } }) => {
+  const { width } = useWindowDimensions();
+  const FADE_IN_ORDER = width > process.env.REACT_APP_TABLET_BREAKPOINT ? 4 : 5;
+
   return (
-    <SongDescriptionContainer>
+    <SongDescriptionContainer
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        transition: { delay: FADE_IN_ORDER * TRANSITION_DELAY }
+      }}
+    >
       <div
         className='songDescriptionContainer'
         dangerouslySetInnerHTML={{ __html: descriptionHTML }}

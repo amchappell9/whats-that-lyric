@@ -36,7 +36,7 @@
   --spacing-7: 64px;
 
   /* Song Info Sizing */
-  --song-info-min-sizing: 400px;
+  --song-info-min-sizing: 350px;
 }
 
 html {

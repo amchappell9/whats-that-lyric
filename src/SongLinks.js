@@ -1,11 +1,15 @@
 import React from 'react';
 // import PropTypes from 'prop-types'
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import useWindowDimensions from './customHooks';
 
 const PHONE_BREAKPOINT = process.env.REACT_APP_PHONE_BREAKPOINT;
 const TABLET_BREAKPOINT = process.env.REACT_APP_TABLET_BREAKPOINT;
 
-const SongLinksContainer = styled.div`
+const TRANSITION_DELAY = process.env.REACT_APP_TRANSITION_DELAY;
+
+const SongLinksContainer = styled(motion.div)`
   grid-row: 2;
   grid-column: 2;
   min-height: var(--song-info-min-sizing);
@@ -54,8 +58,17 @@ const SongLinks = ({
   songInfo: { url: geniusHref },
   songInfo: { album }
 }) => {
+  const { width } = useWindowDimensions();
+  const FADE_IN_ORDER = width > process.env.REACT_APP_TABLET_BREAKPOINT ? 5 : 4;
+
   return (
-    <SongLinksContainer>
+    <SongLinksContainer
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        transition: { delay: FADE_IN_ORDER * TRANSITION_DELAY }
+      }}
+    >
       <SongLink href={geniusHref} target='_blank'>
         Genius Lyrics
       </SongLink>
