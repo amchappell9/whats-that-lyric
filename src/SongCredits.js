@@ -1,13 +1,17 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 import songRelationshipTitles from './SongRelationshipTitles';
 
 const PHONE_BREAKPOINT = process.env.REACT_APP_PHONE_BREAKPOINT;
 const TABLET_BREAKPOINT = process.env.REACT_APP_TABLET_BREAKPOINT;
 
-const SongCreditsContainer = styled.div`
+const TRANSITION_DELAY = process.env.REACT_APP_TRANSITION_DELAY;
+const FADE_IN_ORDER = 6;
+
+const SongCreditsContainer = styled(motion.div)`
   grid-row: 2;
   grid-column: 3;
   min-height: var(--song-info-min-sizing);
@@ -132,7 +136,13 @@ const SongCredits = ({ producersArray, album, songRelationships }) => {
   }
 
   return (
-    <SongCreditsContainer>
+    <SongCreditsContainer
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        transition: { delay: FADE_IN_ORDER * TRANSITION_DELAY }
+      }}
+    >
       {producerInfo}
       {albumInfo}
       {songRelationshipsInfo}

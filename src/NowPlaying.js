@@ -1,8 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 const PHONE_BREAKPOINT = process.env.REACT_APP_PHONE_BREAKPOINT;
 const TABLET_BREAKPOINT = process.env.REACT_APP_TABLET_BREAKPOINT;
+
+const TRANSITION_DELAY = process.env.REACT_APP_TRANSITION_DELAY;
 
 const NowPlayingContainer = styled.div`
   color: var(--magenta);
@@ -33,7 +36,7 @@ const CenteredText = styled.div`
   text-align: center;
 `;
 
-const NowPlayingHeading = styled.h2`
+const NowPlayingHeading = styled(motion.h2)`
   color: var(--grey-600);
   font-size: var(--text-3xl);
   font-weight: bold;
@@ -43,7 +46,7 @@ const NowPlayingHeading = styled.h2`
   }
 `;
 
-const SongName = styled.span`
+const SongName = styled(motion.span)`
   color: var(--magenta);
   font-size: var(--text-4xl);
   font-weight: bold;
@@ -53,7 +56,7 @@ const SongName = styled.span`
   }
 `;
 
-const ArtistName = styled.span`
+const ArtistName = styled(motion.span)`
   color: var(--magenta);
   font-size: var(--text-2xl);
 
@@ -72,13 +75,35 @@ const NowPlaying = ({ nowPlaying }) => {
       <CenteredDiv>
         <CenteredText>
           <TextContainer>
-            <NowPlayingHeading>Now Playing:</NowPlayingHeading>
+            <NowPlayingHeading
+              initial={{ opacity: 0 }}
+              animate={{
+                opacity: 1,
+                transition: { delay: 1 * TRANSITION_DELAY }
+              }}
+            >
+              Now Playing:
+            </NowPlayingHeading>
           </TextContainer>
           <TextContainer>
-            <SongName>{nowPlaying.songName}</SongName>
+            <SongName
+              initial={{ opacity: 0 }}
+              animate={{
+                opacity: 1,
+                transition: { delay: 2 * TRANSITION_DELAY }
+              }}
+            >
+              {nowPlaying.songName}
+            </SongName>
           </TextContainer>
           <TextContainer>
-            <ArtistName>
+            <ArtistName
+              initial={{ opacity: 0 }}
+              animate={{
+                opacity: 1,
+                transition: { delay: 3 * TRANSITION_DELAY }
+              }}
+            >
               By{' '}
               {Array.prototype.map
                 .call(nowPlaying.artists, artist => artist.name)
