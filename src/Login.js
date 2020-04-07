@@ -34,12 +34,12 @@ const MainLogo = styled.h1`
   font-size: var(--text-very-large);
   font-weight: bold;
 
-  @media (max-width: ${PHONE_BREAKPOINT}px) {
-    font-size: var(--text-2xl);
-  }
-
   @media (max-width: ${TABLET_BREAKPOINT}px) {
     font-size: var(--text-5xl);
+  }
+
+  @media (max-width: ${PHONE_BREAKPOINT}px) {
+    font-size: var(--text-2xl);
   }
 `;
 
@@ -66,6 +66,7 @@ const LoginButton = styled.button`
 
   @media (max-width: ${PHONE_BREAKPOINT}px) {
     font-size: var(--text-l);
+    padding: var(--spacing-2) var(--spacing-4);
   }
 `;
 

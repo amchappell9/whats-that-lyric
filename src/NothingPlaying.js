@@ -39,7 +39,12 @@ const NothingPlaying = () => {
   return (
     <StyledContainer>
       <CenteredText>
-        <StyledMessage>Nothing Playing :(</StyledMessage>
+        <StyledMessage>
+          Nothing Playing{' '}
+          <span role='img' aria-label='Sad Face'>
+            🙁
+          </span>
+        </StyledMessage>
         <StyledSubText>
           Start playing any song on your Spotify to see song info.
         </StyledSubText>

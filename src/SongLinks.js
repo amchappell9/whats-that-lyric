@@ -15,14 +15,14 @@ const SongLinksContainer = styled(motion.div)`
   min-height: var(--song-info-min-sizing);
   padding: var(--spacing-5);
 
-  @media (max-width: ${PHONE_BREAKPOINT}px) {
-    grid-column: 1;
+  @media (max-width: ${TABLET_BREAKPOINT}px) {
+    grid-column: 1 / 4;
     grid-row: 2;
     min-height: 0px;
   }
 
-  @media (max-width: ${TABLET_BREAKPOINT}px) {
-    grid-column: 1 / 4;
+  @media (max-width: ${PHONE_BREAKPOINT}px) {
+    grid-column: 1;
     grid-row: 2;
     min-height: 0px;
   }
