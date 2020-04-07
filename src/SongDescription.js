@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import useWindowDimensions from './customHooks';
+// import useWindowDimensions from './customHooks';
 import './SongDescription.scss';
 
 const PHONE_BREAKPOINT = process.env.REACT_APP_PHONE_BREAKPOINT;
@@ -31,8 +31,7 @@ const SongDescriptionContainer = styled(motion.div)`
 `;
 
 const SongDescription = ({ description: { html: descriptionHTML } }) => {
-  const { width } = useWindowDimensions();
-  const FADE_IN_ORDER = width > process.env.REACT_APP_TABLET_BREAKPOINT ? 4 : 5;
+  const FADE_IN_ORDER = 4;
 
   return (
     <SongDescriptionContainer

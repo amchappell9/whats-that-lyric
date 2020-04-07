@@ -2,7 +2,6 @@ import React from 'react';
 // import PropTypes from 'prop-types'
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import useWindowDimensions from './customHooks';
 
 const PHONE_BREAKPOINT = process.env.REACT_APP_PHONE_BREAKPOINT;
 const TABLET_BREAKPOINT = process.env.REACT_APP_TABLET_BREAKPOINT;
@@ -58,8 +57,7 @@ const SongLinks = ({
   songInfo: { url: geniusHref },
   songInfo: { album }
 }) => {
-  const { width } = useWindowDimensions();
-  const FADE_IN_ORDER = width > process.env.REACT_APP_TABLET_BREAKPOINT ? 5 : 4;
+  const FADE_IN_ORDER = 4;
 
   return (
     <SongLinksContainer

@@ -76,10 +76,11 @@ const NowPlaying = ({ nowPlaying }) => {
         <CenteredText>
           <TextContainer>
             <NowPlayingHeading
-              initial={{ opacity: 0 }}
+              initial={{ opacity: 0, y: -50 }}
               animate={{
                 opacity: 1,
-                transition: { delay: 1 * TRANSITION_DELAY }
+                transition: { delay: 1 * TRANSITION_DELAY },
+                y: 0
               }}
             >
               Now Playing:
@@ -87,10 +88,11 @@ const NowPlaying = ({ nowPlaying }) => {
           </TextContainer>
           <TextContainer>
             <SongName
-              initial={{ opacity: 0 }}
+              initial={{ opacity: 0, y: -50 }}
               animate={{
                 opacity: 1,
-                transition: { delay: 2 * TRANSITION_DELAY }
+                transition: { delay: 2 * TRANSITION_DELAY },
+                y: 0
               }}
             >
               {nowPlaying.songName}
@@ -98,10 +100,11 @@ const NowPlaying = ({ nowPlaying }) => {
           </TextContainer>
           <TextContainer>
             <ArtistName
-              initial={{ opacity: 0 }}
+              initial={{ opacity: 0, y: -50 }}
               animate={{
                 opacity: 1,
-                transition: { delay: 3 * TRANSITION_DELAY }
+                transition: { delay: 3 * TRANSITION_DELAY },
+                y: 0
               }}
             >
               By{' '}

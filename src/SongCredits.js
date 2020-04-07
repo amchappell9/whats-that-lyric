@@ -9,7 +9,7 @@ const PHONE_BREAKPOINT = process.env.REACT_APP_PHONE_BREAKPOINT;
 const TABLET_BREAKPOINT = process.env.REACT_APP_TABLET_BREAKPOINT;
 
 const TRANSITION_DELAY = process.env.REACT_APP_TRANSITION_DELAY;
-const FADE_IN_ORDER = 6;
+const FADE_IN_ORDER = 4;
 
 const SongCreditsContainer = styled(motion.div)`
   grid-row: 2;
