@@ -34,6 +34,7 @@ What's that lyric will allow you to log into your Spotify and view song informat
   - Animations
   - Better mobile responsiveness
   - Add background patterns
+  - Add footer with link to repo
 
 ## Resources Used
 
