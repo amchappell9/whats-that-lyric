@@ -2,7 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-const StyledMainContainer = styled.div`
+import W_ICON from './svgs';
+
+const PHONE_BREAKPOINT = process.env.REACT_APP_PHONE_BREAKPOINT;
+
+const StyledMainContainer = styled(motion.div)`
   color: var(--magenta);
   height: 100%;
 `;
@@ -19,11 +23,19 @@ const StyledContainer = styled.div`
 `;
 
 const StyledUpperContainer = styled(StyledContainer)`
-  margin-bottom: var(--spacing-6);
+  margin-bottom: var(--spacing-4);
+
+  @media (max-width: ${PHONE_BREAKPOINT}px) {
+    margin-bottom: var(--spacing-1);
+  }
 `;
 
 const StyledLowerContainer = styled(StyledContainer)`
-  margin-top: var(--spacing-5);
+  margin-top: var(--spacing-3);
+
+  @media (max-width: ${PHONE_BREAKPOINT}px) {
+    padding: 0 var(--spacing-2);
+  }
 `;
 
 const StyledSpinnerContainer = styled.div`
@@ -31,30 +43,40 @@ const StyledSpinnerContainer = styled.div`
   align-items: center;
   justify-content: center;
   height: 100px;
+
+  @media (max-width: ${PHONE_BREAKPOINT}px) {
+    transform: scale(0.8);
+  }
 `;
 
 const StyledSpinner = styled(motion.div)`
-  width: 80px;
-  height: 80px;
-  background-color: var(--magenta);
+  transform: scale(0.4);
 `;
 
 const StyledSubText = styled.span`
   color: var(--grey-500);
   display: block;
   font-size: var(--text-l);
+  text-align: center;
 `;
 
 const Loading = () => {
   return (
-    <StyledMainContainer className='StyledContainer'>
+    <StyledMainContainer
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1
+      }}
+    >
       <StyledInnerContainer>
         <StyledUpperContainer>
           <StyledSpinnerContainer className='StyledSpinnerContainer'>
             <StyledSpinner
-              animate={{ scale: 1.4, rotate: 180 }}
+              animate={{ scale: 0.8 }}
               transition={{ yoyo: Infinity, duration: 1 }}
-            />
+            >
+              <W_ICON />
+            </StyledSpinner>
           </StyledSpinnerContainer>
         </StyledUpperContainer>
         <StyledLowerContainer>
