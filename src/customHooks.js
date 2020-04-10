@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 
+// https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
 const getVisibilityProperties = () => {
   var hidden, visibilityChange;
 
@@ -27,10 +28,8 @@ const usePageVisibility = () => {
 
   const handleVisibilityChange = () => {
     if (document[hidden]) {
-      console.log('Page hidden');
       setPageVisible(false);
     } else {
-      console.log('Page visibile');
       setPageVisible(true);
     }
   };
