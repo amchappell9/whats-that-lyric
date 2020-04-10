@@ -9,6 +9,7 @@ import Loading from './Loading';
 import NothingPlaying from './NothingPlaying';
 import NowPlaying from './NowPlaying';
 import SongInfo from './SongInfo';
+import usePageVisibility from './customHooks';
 
 const spotifyApi = new SpotifyWebApi();
 const spotifyClientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
@@ -67,7 +68,7 @@ const getHashParams = () => {
   return hashParams;
 };
 
-const generateRandomString = length => {
+const generateRandomString = (length) => {
   var text = '';
   var possible =
     'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -111,18 +112,19 @@ const App = () => {
   const [geniusInfo, setGeniusInfo] = useState(null);
   const [nothingPlaying, setNothingPlaying] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const pageVisibile = usePageVisibility();
 
   useEffect(() => {
     // Move to custom hooks?
     const getNowPlaying = () => {
       setIsLoading(true);
 
-      spotifyApi.getMyCurrentPlaybackState().then(response => {
+      spotifyApi.getMyCurrentPlaybackState().then((response) => {
         if (response) {
           setNowPlaying({
             songName: response.item.name,
             artists: response.item.artists,
-            albumArt: response.item.album.images[0].url
+            albumArt: response.item.album.images[0].url,
           });
           setNothingPlaying(false);
           searchGeniusAPI(response.item.name, response.item.artists[0].name);
@@ -141,34 +143,34 @@ const App = () => {
       )} ${encodeURI(artistName)}`;
 
       fetch(geniusSearchURL)
-        .then(response => {
+        .then((response) => {
           return response.json();
         })
-        .then(response => {
+        .then((response) => {
           // We're hoping that the first result is the best one
           getGeniusSongInfo(response.response.hits[0]);
         });
     };
 
-    const getGeniusSongInfo = geniusSearchResult => {
+    const getGeniusSongInfo = (geniusSearchResult) => {
       const lyricsURL = `https://api.genius.com${geniusSearchResult.result.api_path}?access_token=${geniusClientAccessToken}&text_format=html`;
 
       fetch(lyricsURL)
-        .then(response => {
+        .then((response) => {
           return response.json();
         })
-        .then(response => {
+        .then((response) => {
           setGeniusInfo(response.response.song);
           setIsLoading(false);
         });
     };
 
-    if (token) {
+    if (token && pageVisibile) {
       spotifyApi.setAccessToken(token);
 
       getNowPlaying();
     }
-  }, [token]);
+  }, [token, pageVisibile]);
 
   let content;
 
