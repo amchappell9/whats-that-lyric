@@ -1,5 +1,8 @@
 import React from 'react';
 
+/**
+ * Icon used for loading widget
+ */
 const W_ICON = () => (
   <svg
     width='122'

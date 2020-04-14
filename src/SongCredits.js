@@ -74,7 +74,7 @@ const SongCredits = ({ producersArray, album, songRelationships }) => {
   let albumInfo = <></>;
   let songRelationshipsInfo = <></>;
 
-  if (producersArray.length > 0) {
+  if (producersArray && producersArray.length > 0) {
     producerInfo = (
       <CreditContainer>
         <CreditHeading>Produced By:</CreditHeading>
@@ -106,7 +106,7 @@ const SongCredits = ({ producersArray, album, songRelationships }) => {
   }
 
   if (songRelationships) {
-    songRelationshipsInfo = songRelationships.map(relationship => {
+    songRelationshipsInfo = songRelationships.map((relationship) => {
       if (typeof songRelationshipTitles[relationship.type] !== 'undefined') {
         const relationshipTitle = songRelationshipTitles[relationship.type];
 
@@ -140,7 +140,7 @@ const SongCredits = ({ producersArray, album, songRelationships }) => {
       initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
-        transition: { delay: FADE_IN_ORDER * TRANSITION_DELAY }
+        transition: { delay: FADE_IN_ORDER * TRANSITION_DELAY },
       }}
     >
       {producerInfo}
