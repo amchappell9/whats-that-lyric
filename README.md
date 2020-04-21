@@ -37,7 +37,13 @@ What's that lyric will allow you to log into your Spotify and view song informat
   - Better mobile responsiveness
   - Add background patterns
   - Add footer with link to repo
-  - Skeleton loading templates?
+  - Skeleton loading templates
+
+Jest
+  - Adding enzyme
+  - What is mocking?
+  - How do I fake authentication?
+  - Test smaller components
 
 ## Resources Used
 
