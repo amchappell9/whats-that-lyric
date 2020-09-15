@@ -10,6 +10,7 @@ import NothingPlaying from './NothingPlaying';
 import NowPlaying from './NowPlaying';
 import SongInfo from './SongInfo';
 import usePageVisibility from './customHooks';
+import ErrorBoundry from './ErrorBoundry';
 
 const spotifyApi = new SpotifyWebApi();
 const spotifyClientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
@@ -119,22 +120,39 @@ const App = () => {
     const getNowPlaying = () => {
       setIsLoading(true);
 
-      spotifyApi.getMyCurrentPlaybackState().then((response) => {
-        if (response) {
-          setNowPlaying({
-            songName: response.item.name,
-            artists: response.item.artists,
-            albumArt: response.item.album.images[0].url,
-          });
-          setNothingPlaying(false);
-          searchGeniusAPI(response.item.name, response.item.artists[0].name);
-        } else {
-          // Nothing Playing
-          setNothingPlaying(true);
-          setNowPlaying(null);
-          setIsLoading(false);
-        }
-      });
+      spotifyApi
+        .getMyCurrentPlaybackState()
+        .then(
+          (response) => {
+            if (response) {
+              setNowPlaying({
+                songName: response.item.name,
+                artists: response.item.artists,
+                albumArt: response.item.album.images[0].url,
+              });
+              setNothingPlaying(false);
+              searchGeniusAPI(
+                response.item.name,
+                response.item.artists[0].name
+              );
+            } else {
+              // Nothing Playing
+              setNothingPlaying(true);
+              setNowPlaying(null);
+              setIsLoading(false);
+            }
+          },
+          (error) => {
+            const errorResponse = JSON.parse(error.response);
+
+            if (errorResponse.error.status === '401') {
+              redirectToSpotifyAuth();
+            }
+          }
+        )
+        .catch((error) => {
+          console.log(error);
+        });
     };
 
     const searchGeniusAPI = (songName, artistName) => {
@@ -192,7 +210,9 @@ const App = () => {
   return (
     <StyledApp>
       <Header isLoggedIn={isAuthenticated} handleLogout={handleLogout} />
-      <StyledMain>{content}</StyledMain>
+      <StyledMain>
+        <ErrorBoundry>{content}</ErrorBoundry>
+      </StyledMain>
       <Footer />
     </StyledApp>
   );
