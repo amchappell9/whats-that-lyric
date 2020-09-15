@@ -46,7 +46,7 @@ const NothingPlaying = () => {
       animate={{
         opacity: 1,
         transition: { delay: 1 * TRANSITION_DELAY },
-        y: 0
+        y: 0,
       }}
     >
       <CenteredText>
