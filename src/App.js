@@ -205,6 +205,8 @@ const App = () => {
         <SongInfo songInfo={geniusInfo} />
       </NowPlayingSubGrid>
     );
+  } else {
+    content = <></>;
   }
 
   return (
