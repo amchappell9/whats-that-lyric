@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const PHONE_BREAKPOINT = process.env.REACT_APP_PHONE_BREAKPOINT;
 const TABLET_BREAKPOINT = process.env.REACT_APP_TABLET_BREAKPOINT;
@@ -35,7 +35,7 @@ const StyledLogoutButton = styled.div`
 
   display: inline-block;
   margin-bottom: 0;
-  font-weight: normal;
+  font-weight: bold;
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
@@ -72,13 +72,13 @@ const StyledLogo = styled.h1`
 
 const Header = ({ isLoggedIn, handleLogout }) => {
   return (
-    <StyledHeader className='StyledHeader'>
+    <StyledHeader className="StyledHeader">
       {isLoggedIn && (
-        <StyledLogoContainer className='StyledLogoContainer'>
+        <StyledLogoContainer className="StyledLogoContainer">
           <div>
             <StyledLogo>What's That Lyric?</StyledLogo>
           </div>
-          <StyledLogoutContainer className='StyledLogoutContainer'>
+          <StyledLogoutContainer className="StyledLogoutContainer">
             <StyledLogoutButton onClick={handleLogout}>
               Logout
             </StyledLogoutButton>
