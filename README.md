@@ -2,7 +2,7 @@
 
 # What's that lyric?
 
-What's that lyric will allow you to log into your Spotify and view song information on the current song you're listening to. Built using React and styled-components. Uses the Spotify and Genius APIs.
+What's that lyric will allow you to log into your Spotify and view song information on the current song you're listening to. Built using React and styled-components. Uses the Spotify and Genius APIs. Deployed using Netlify.
 
 ## TODO List
 
@@ -16,8 +16,8 @@ What's that lyric will allow you to log into your Spotify and view song informat
 - ~~Reorganize components for new layout~~
 - ~~Redo logic with hooks~~
 - ~~Move keys to .env files~~
-- Add Loading Widget
-- Add functionality to refresh content when you reload the tab (possibly with service worker?)
+- ~~Add Loading Widget~~
+- ~~Add functionality to refresh content when you reload the tab (possibly with service worker?)~~
 - Refactor SongCredits.js
 - Change ajax requests to axios
 - ~~Setup auto recheck for song change on spotify~~ -might need to refine further
@@ -32,9 +32,9 @@ What's that lyric will allow you to log into your Spotify and view song informat
 - Performance enhancements, lower page load times
 - Better error handling
 - Enhance UI
-  - Animations
-    - https://www.framer.com/learn/guide/animated-text/
-  - Better mobile responsiveness
+  - ~~Animations~~
+    - ~~https://www.framer.com/learn/guide/animated-text/~~
+  - ~~Better mobile responsiveness~~
   - Add background patterns
   - Add footer with link to repo
   - Skeleton loading templates?
