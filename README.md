@@ -4,44 +4,17 @@
 
 What's that lyric will allow you to log into your Spotify and view song information on the current song you're listening to. Built using React and styled-components. Uses the Spotify and Genius APIs. Deployed using Netlify.
 
-## TODO List
+## To Use
 
-- ~~Login with Spotify Credentials (need to switch to implict authentication)~~
-- ~~Get song fron spotify API~~
-- ~~Setup NothingPlaying screen~~
-- ~~Lookup song with Genius API~~
-- ~~Get song credits from Genius or Spotify?~~
-  - Genius doesn't support getting lyrics from their API :(
-- ~~Need to crawl API responses to figure out what info I could display~~
-- ~~Reorganize components for new layout~~
-- ~~Redo logic with hooks~~
-- ~~Move keys to .env files~~
-- ~~Add Loading Widget~~
-- ~~Add functionality to refresh content when you reload the tab (possibly with service worker?)~~
-- Refactor SongCredits.js
-- Change ajax requests to axios
-- ~~Setup auto recheck for song change on spotify~~ -might need to refine further
-- Development Tools
-  - eslint
-  - prettier
-- Setup deployment pipeline
-  - eslint integrations
-  - prettier integrations
-  - Lighthouse Audits
-  - Deployment
-- Performance enhancements, lower page load times
-- Better error handling
-- Enhance UI
-  - ~~Animations~~
-    - ~~https://www.framer.com/learn/guide/animated-text/~~
-  - ~~Better mobile responsiveness~~
-  - Add background patterns
-  - Add footer with link to repo
-  - Skeleton loading templates?
+On the homepage click login on the main page you'll be taken to enter your Spotify credentials and authorize the What's That Lyric app. Once you've done so you'll be shown the song you're currently playing on Spotify along side info about the song, song credits, and links to the [Genius](https://genius.com/) lyrics page.
 
-## Resources Used
+## Tools
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
+- Utilizes the [Spotify API](https://developer.spotify.com/documentation/web-api/) for current song info
+- Pulls song info, credits, and links from the [Genius API](https://genius.com/developers)
+- Styling done using [styled components](https://styled-components.com/)
 
-- [Create React Apps Docs](./create-react-app-docs.md)
-- Spotify auth - https://medium.com/@jonnykalambay/now-playing-using-spotifys-awesome-api-with-react-7db8173a7b13
+### Known Issues
+
+- Sometimes the genius song information is incomplete. This happens when the Genius API search doesn't match on the correct result.
